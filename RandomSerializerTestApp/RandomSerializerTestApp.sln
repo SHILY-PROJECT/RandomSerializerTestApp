@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{155E53F7-0FFE-4153-A3EB-804B5BB38156}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomSerializerTestApp", "src\RandomSerializerTestApp\RandomSerializerTestApp.csproj", "{F9A06A5E-98E8-43F0-9274-B5883A74384D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9A06A5E-98E8-43F0-9274-B5883A74384D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A06A5E-98E8-43F0-9274-B5883A74384D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A06A5E-98E8-43F0-9274-B5883A74384D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A06A5E-98E8-43F0-9274-B5883A74384D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9A06A5E-98E8-43F0-9274-B5883A74384D} = {155E53F7-0FFE-4153-A3EB-804B5BB38156}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {680097B1-83A6-4A2E-B07E-84433E7D33B5}
+	EndGlobalSection
+EndGlobal
