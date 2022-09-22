@@ -50,8 +50,8 @@ public class PersonGeneratorService : IPersonGeneratorService
     private int GetRandomAgeUsingProbabilityPercentage() => _rnd.NextDouble() switch
     {
         (< 0.20) => _rnd.Next(80, 100),
-        (< 0.45) => _rnd.Next(60, 80),
-        (< 0.55) => _rnd.Next(40, 60),
+        (< 0.35) => _rnd.Next(60, 80),
+        (< 0.45) => _rnd.Next(40, 60),
         (< 0.95) => _rnd.Next(18, 40),
         _ => _rnd.Next(18, 100)
     };
