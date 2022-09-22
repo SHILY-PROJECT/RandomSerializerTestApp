@@ -1,6 +1,4 @@
-﻿using RandomSerializerTestApp.Persons;
-
-namespace RandomSerializerTestApp.Models;
+﻿namespace RandomSerializerTestApp.Core.Persons;
 
 public class Person
 {

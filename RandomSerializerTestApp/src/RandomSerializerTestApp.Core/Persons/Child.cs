@@ -1,4 +1,4 @@
-﻿namespace RandomSerializerTestApp.Persons;
+﻿namespace RandomSerializerTestApp.Core.Persons;
 
 public class Child
 {
