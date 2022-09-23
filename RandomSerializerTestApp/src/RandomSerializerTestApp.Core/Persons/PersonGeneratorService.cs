@@ -1,27 +1,35 @@
 ﻿using Bogus;
 using Bogus.DataSets;
 using Bogus.Extensions.Extras;
+using System.Runtime;
 
 namespace RandomSerializerTestApp.Core.Persons;
 
 public class PersonGeneratorService : IPersonGeneratorService
 {
-    private const string Locale = "ru";
-
     private readonly Random _rnd = new();
+
+    private readonly IPersonGeneratorServiceSettings _settings;
+
+    public PersonGeneratorService(IPersonGeneratorServiceSettings personGeneratorServiceSettings)
+    {
+        _settings = personGeneratorServiceSettings;
+    }
 
     public async Task<IEnumerable<Person>> GenerateAsync(int numberOfPersonsToGenerate) =>
         await this.Generate(numberOfPersonsToGenerate);
 
     private async Task<IEnumerable<Person>> Generate(int numberOfPersonsToGenerate)
     {
-        var childFaker = new Faker<Child>(Locale)
+        var locale = _settings.DataLocalizationLanguage;
+
+        var childFaker = new Faker<Child>(locale)
             .RuleFor(c => c.Id, f => f.IndexFaker)
             .RuleFor(c => c.Gender, f => f.PickRandom<Gender>())
             .RuleFor(c => c.FirstName, (f, c) => f.Name.FirstName((Name.Gender)c.Gender))
             .RuleFor(c => c.LastName, (f, c) => f.Name.LastName((Name.Gender)c.Gender));
         
-        var personFaker = new Faker<Person>(Locale)
+        var personFaker = new Faker<Person>(locale)
             .RuleFor(p => p.Id, f => f.IndexFaker)
             .RuleFor(p => p.TransportId, f => Guid.NewGuid())
             .RuleFor(p => p.CreditCardNumbers, f => Enumerable.Range(0, f.Random.Int(0, 3).OrDefault(f, f.Random.Float(0.15f, 0.30f))).Select(x => f.Finance.Random.ReplaceNumbers("4##############").AppendCheckDigit()).ToArray())
