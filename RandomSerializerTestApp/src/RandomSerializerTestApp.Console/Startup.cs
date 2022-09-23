@@ -12,16 +12,16 @@ internal class Startup
 
     private readonly ILocalStorageService _localStorageService;
     private readonly IPersonGeneratorService _personGenerator;
-    private readonly ILocalStorageSettings _localStorageSettings;
+    private readonly ILocalStorageServiceSettings _localStorageServiceSettings;
 
     public Startup(
         ILocalStorageService localStorageService,
         IPersonGeneratorService personGeneratorService,
-        ILocalStorageSettings localStorageSettings)
+        ILocalStorageServiceSettings localStorageServiceSettings)
     {
         _localStorageService = localStorageService;
         _personGenerator = personGeneratorService;
-        _localStorageSettings = localStorageSettings;
+        _localStorageServiceSettings = localStorageServiceSettings;
     }
 
     public static async Task Main()
@@ -39,7 +39,7 @@ internal class Startup
     
     public async Task Start()
     {
-        var fullFileNameWithPersons = Path.Combine(_localStorageSettings.DirectoryNameOfFiles, PersonsFileName);
+        var fullFileNameWithPersons = Path.Combine(_localStorageServiceSettings.DirectoryNameOfFiles, PersonsFileName);
 
         // Generation persons
         Console.WriteLine("The process of generating realistic data may take some time, please wait...");

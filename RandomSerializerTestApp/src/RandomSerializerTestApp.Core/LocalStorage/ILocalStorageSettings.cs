@@ -1,6 +1,6 @@
 ﻿namespace RandomSerializerTestApp.Core.LocalStorage;
 
-public interface ILocalStorageSettings
+public interface ILocalStorageServiceSettings
 {
     string DirectoryNameOfFiles { get; init; }
 }

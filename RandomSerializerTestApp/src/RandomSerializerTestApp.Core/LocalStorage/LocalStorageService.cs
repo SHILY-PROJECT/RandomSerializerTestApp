@@ -4,12 +4,12 @@ namespace RandomSerializerTestApp.Core.LocalStorage;
 
 public class LocalStorageService : ILocalStorageService
 {
-    private readonly ILocalStorageSettings _localStorageSettings;
+    private readonly ILocalStorageServiceSettings _settings;
     private readonly JsonSerializerOptions _jsonSerializerOptions;
 
-    public LocalStorageService(ILocalStorageSettings localStorageSettings)
+    public LocalStorageService(ILocalStorageServiceSettings localStorageServiceSettings)
 	{
-        _localStorageSettings = localStorageSettings;
+        _settings = localStorageServiceSettings;
         _jsonSerializerOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -42,7 +42,7 @@ public class LocalStorageService : ILocalStorageService
     }
 
     private string CombineFullFileName(string fileNmae) =>
-        Path.Combine(_localStorageSettings.DirectoryNameOfFiles, fileNmae);
+        Path.Combine(_settings.DirectoryNameOfFiles, fileNmae);
 
     private void IfNameIsInvalidThrowAnException(string fileNmae)
     {
