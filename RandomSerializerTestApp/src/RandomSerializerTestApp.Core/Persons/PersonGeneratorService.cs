@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using Bogus.DataSets;
 using Bogus.Extensions.Extras;
-using System.Runtime;
 
 namespace RandomSerializerTestApp.Core.Persons;
 
